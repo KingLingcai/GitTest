@@ -7,8 +7,10 @@
 //
 
 #import "MainViewController.h"
-#
+#import "Masonry.h"
 @interface MainViewController ()
+
+@property (nonatomic, strong) UIScrollView *scrollView;
 
 @end
 
@@ -16,6 +18,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.scrollView = ({
+        UIScrollView *view = [UIScrollView new];
+        [self.view addSubview:view];
+        view.backgroundColor = [UIColor lightGrayColor];
+        [view mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.topLayoutGuide);
+            make.left.equalTo(self.view.mas_left).offset(20);
+            make.right.equalTo(self.view.mas_right).offset(-20);
+            make.bottom.equalTo(self.bottomLayoutGuide);
+        }];
+        view;
+    });
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
