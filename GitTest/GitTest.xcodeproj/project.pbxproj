@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		3C2A8ED91D5B32220012C5B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2A8ED81D5B32220012C5B3 /* main.m */; };
 		3C2A8EDC1D5B32220012C5B3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2A8EDB1D5B32220012C5B3 /* AppDelegate.m */; };
-		3C2A8EDF1D5B32220012C5B3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2A8EDE1D5B32220012C5B3 /* ViewController.m */; };
+		3C2A8EDF1D5B32220012C5B3 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2A8EDE1D5B32220012C5B3 /* MainViewController.m */; };
 		3C2A8EE21D5B32220012C5B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C2A8EE01D5B32220012C5B3 /* Main.storyboard */; };
 		3C2A8EE41D5B32220012C5B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C2A8EE31D5B32220012C5B3 /* Assets.xcassets */; };
 		3C2A8EE71D5B32220012C5B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C2A8EE51D5B32220012C5B3 /* LaunchScreen.storyboard */; };
@@ -50,8 +50,8 @@
 		3C2A8ED81D5B32220012C5B3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3C2A8EDA1D5B32220012C5B3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3C2A8EDB1D5B32220012C5B3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3C2A8EDD1D5B32220012C5B3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3C2A8EDE1D5B32220012C5B3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3C2A8EDD1D5B32220012C5B3 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		3C2A8EDE1D5B32220012C5B3 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		3C2A8EE11D5B32220012C5B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3C2A8EE31D5B32220012C5B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C2A8EE61D5B32220012C5B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -140,8 +140,8 @@
 			children = (
 				3C2A8EDA1D5B32220012C5B3 /* AppDelegate.h */,
 				3C2A8EDB1D5B32220012C5B3 /* AppDelegate.m */,
-				3C2A8EDD1D5B32220012C5B3 /* ViewController.h */,
-				3C2A8EDE1D5B32220012C5B3 /* ViewController.m */,
+				3C2A8EDD1D5B32220012C5B3 /* MainViewController.h */,
+				3C2A8EDE1D5B32220012C5B3 /* MainViewController.m */,
 				3C2A8EE01D5B32220012C5B3 /* Main.storyboard */,
 				3C2A8EE31D5B32220012C5B3 /* Assets.xcassets */,
 				3C2A8EE51D5B32220012C5B3 /* LaunchScreen.storyboard */,
@@ -346,7 +346,7 @@
 				3C2A8F2B1D5B32910012C5B3 /* MASViewConstraint.m in Sources */,
 				3C2A8F261D5B32910012C5B3 /* MASCompositeConstraint.m in Sources */,
 				3C2A8F2C1D5B32910012C5B3 /* NSArray+MASAdditions.m in Sources */,
-				3C2A8EDF1D5B32220012C5B3 /* ViewController.m in Sources */,
+				3C2A8EDF1D5B32220012C5B3 /* MainViewController.m in Sources */,
 				3C2A8EDC1D5B32220012C5B3 /* AppDelegate.m in Sources */,
 				3C2A8F291D5B32910012C5B3 /* MASLayoutConstraint.m in Sources */,
 				3C2A8ED91D5B32220012C5B3 /* main.m in Sources */,

@@ -6,13 +6,13 @@
 //  Copyright © 2016年 King. All rights reserved.
 //
 
-#import "ViewController.h"
-
-@interface ViewController ()
+#import "MainViewController.h"
+#
+@interface MainViewController ()
 
 @end
 
-@implementation ViewController
+@implementation MainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
