@@ -75,7 +75,7 @@
         imgView;
     });
     
-    
+    NSLog(@"hello");
     // Do any additional setup after loading the view.
 }
 
