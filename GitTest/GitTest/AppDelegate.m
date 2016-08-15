@@ -7,7 +7,9 @@
 //
 
 #import "AppDelegate.h"
-
+#import "MainViewController.h"
+#import "MineViewController.h"
+#import "LoginViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -16,6 +18,26 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    MainViewController *mainVC = [MainViewController new];
+    UINavigationController *mainNav = [[UINavigationController alloc]initWithRootViewController:mainVC];
+    mainNav.navigationBarHidden = YES;
+    
+    MineViewController *mineVC = [MineViewController new];
+    UINavigationController *mineNav = [[UINavigationController alloc] initWithRootViewController:mineVC];
+    mineNav.navigationBarHidden = YES;
+    
+    UITabBarController *tabBarController =[[UITabBarController alloc]init];
+    tabBarController.viewControllers = @[mainNav,mineNav];
+    [mainNav.tabBarItem setTitle:@"首页"];
+    [mineNav.tabBarItem setTitle:@"我的"];
+    [self.window setRootViewController:tabBarController];
+    
+//    LoginViewController *loginVC = [LoginViewController new];
+//    self.window.rootViewController = loginVC;
+    [self.window makeKeyAndVisible];
     // Override point for customization after application launch.
     return YES;
 }
