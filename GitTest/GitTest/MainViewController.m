@@ -14,8 +14,13 @@
 #import "HeaderReusableView.h"
 #import "MoreViewController.h"
 #import "DetailViewController.h"
+#import "RequestManager.h"
+#import "BannerModelManager.h"
 
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kQualityCourseURL @"http://crm.powercreator.com.cn:100/app/getcourse.aspx?&coursetype=3&fkcatalogid=0&fkgradeid=0&fktextbookid=0&ischaracteristiccourse=1&order=courseid%252520desc&pageindex=1&pagesize=0&popedomlist=&state=1&uid=0"
+#define kOpenCourseURL @"http://crm.powercreator.com.cn:100/app/getcourse.aspx?&coursetype=3&fkcatalogid=0&fkgradeid=0&fktextbookid=0&ischaracteristiccourse=&order=courseid%252520desc&pageindex=1&pagesize=0&popedomlist=&state=1&uid=0"
+#define kBannersURL @"http://crm.powercreator.com.cn:100/APP/GetBanner.aspx"
 
 @interface MainViewController ()
 <
@@ -27,16 +32,25 @@
 @property (nonatomic, strong) UICollectionView  *collectionView;
 @property (nonatomic, strong) UILabel           *titleLabel;
 @property (nonatomic, strong) UIScrollView      *adScrollView;
+//@property (nonatomic, strong) UIImageView       *adImageView;
 @property (nonatomic, strong) UIPageControl     *adPageControl;
+@property (nonatomic, strong) NSArray           *bannerModels;
 
 @end
 
 @implementation MainViewController
 
+-(void)viewDidAppear:(BOOL)animated{
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
     
+//    dispatch_async(dispatch_get_global_queue(<#long identifier#>, <#unsigned long flags#>), <#^(void)block#>)
+    
+    
+    self.view.backgroundColor = [UIColor whiteColor];
     self.titleLabel = ({
         UILabel *label = [UILabel new];
         label.backgroundColor = [UIColor redColor];
@@ -79,6 +93,8 @@
         collectionView;
     });
 }
+
+
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     switch (section) {

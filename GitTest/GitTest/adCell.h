@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface adCell : UICollectionViewCell
+@interface adCell : UICollectionViewCell<UIScrollViewDelegate>
 
 @property (nonatomic, strong) UIScrollView      *adScrollView;
 @property (nonatomic, strong) UIPageControl     *adPageControl;
+@property (nonatomic, copy)   NSString          *imageName;
 
 @end

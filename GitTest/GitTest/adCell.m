@@ -8,6 +8,9 @@
 
 #import "adCell.h"
 #import "Masonry.h"
+
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+
 @implementation adCell
 
 - (instancetype)initWithFrame:(CGRect)frame{
@@ -16,13 +19,17 @@
         
         self.adScrollView = ({
             UIScrollView *scrollView = [UIScrollView new];
+            scrollView.scrollEnabled = YES;
+            scrollView.pagingEnabled = YES;
             scrollView.backgroundColor = [UIColor grayColor];
+            scrollView.frame = CGRectMake(0, 0, kScreenWidth, kScreenWidth * 9 / 16);
             [self.contentView addSubview:scrollView];
-            [scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.left.equalTo(self.contentView);
-                make.width.equalTo(self.contentView);
-                make.height.equalTo(self.contentView.mas_width).multipliedBy(9.0/16.0);
-            }];
+            for (int i = 0; i < 3; ++i) {
+                UIImageView *imageView = [UIImageView new];
+                imageView.backgroundColor = [UIColor redColor];
+                imageView.frame = CGRectMake(i * kScreenWidth, 0, kScreenWidth, kScreenWidth * 9 / 16);
+                [scrollView addSubview:imageView];
+            }
             scrollView;
         });
     
@@ -39,6 +46,10 @@
         });
     }
     return self;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    NSLog(@"%@",NSStringFromUIEdgeInsets(scrollView.contentInset));
 }
 
 @end
