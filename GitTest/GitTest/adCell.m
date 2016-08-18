@@ -7,27 +7,43 @@
 //
 
 #import "adCell.h"
+#import "BannerModel.h"
 #import "Masonry.h"
+#import "UIImageView+WebCache.h"
 
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kIndexURL @"http://crm.powercreator.com.cn:100"
 
 @implementation adCell
 
+- (void)setContents:(NSArray *)contents{
+    if (!_contents) {
+        _contents = contents;
+        for (int i = 0; i < 3; ++i) {
+            BannerModel *model = _contents[i];
+            NSLog(@"%@",model.picURL);
+            NSLog(@"%@",_contents);
+            UIImageView *imageView = (UIImageView *)[self viewWithTag:10 + i];
+            NSString *URLStirng = [NSString stringWithFormat:@"%@%@",kIndexURL,model.picURL];
+            NSLog(@"%@",URLStirng);
+            [imageView sd_setImageWithURL:[NSURL URLWithString:URLStirng]];
+        }
+    }
+}
+
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self == [super initWithFrame:frame]) {
-        self.backgroundColor = [UIColor blackColor];
-        
         self.adScrollView = ({
             UIScrollView *scrollView = [UIScrollView new];
             scrollView.scrollEnabled = YES;
             scrollView.pagingEnabled = YES;
-            scrollView.backgroundColor = [UIColor grayColor];
-            scrollView.frame = CGRectMake(0, 0, kScreenWidth, kScreenWidth * 9 / 16);
+            scrollView.frame = CGRectMake(0, 0, kScreenWidth, kScreenWidth * 425 / 1280);
+            scrollView.contentSize = CGSizeMake(kScreenWidth * 3, kScreenWidth * 425 / 1280);
             [self.contentView addSubview:scrollView];
             for (int i = 0; i < 3; ++i) {
                 UIImageView *imageView = [UIImageView new];
-                imageView.backgroundColor = [UIColor redColor];
-                imageView.frame = CGRectMake(i * kScreenWidth, 0, kScreenWidth, kScreenWidth * 9 / 16);
+                imageView.tag = 10 + i;
+                imageView.frame = CGRectMake(i * kScreenWidth, 0, kScreenWidth, kScreenWidth * 425 / 1280);
                 [scrollView addSubview:imageView];
             }
             scrollView;

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CourseModel.h"
 
 @interface DetailViewController : UIViewController
+
+@property (nonatomic, strong) CourseModel *course;
 
 @end

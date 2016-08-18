@@ -10,4 +10,6 @@
 
 @interface MoreViewController : UIViewController
 
+@property (nonatomic, copy) NSArray *courses;
+
 @end

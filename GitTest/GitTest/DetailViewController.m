@@ -8,6 +8,10 @@
 
 #import "DetailViewController.h"
 #import "Masonry.h"
+#import "UIImageView+WebCache.h"
+
+#define kIndexURL @"http://crm.powercreator.com.cn:100"
+
 @interface DetailViewController ()
 
 @property (nonatomic, strong) UIImageView   *imageView;
@@ -59,7 +63,7 @@
             make.height.equalTo(@20);
             make.width.equalTo(@100);
         }];
-        label.text = @"内蒙古中学";
+//        label.text = @"内蒙古中学";
         label;
     });
     
@@ -75,6 +79,9 @@
         imgView;
     });
     
+    NSString *urlString = [NSString stringWithFormat:@"%@%@",kIndexURL,self.course.picPath];
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:urlString]];
+    self.schoolNameLabel.text = self.course.courseName;
     // Do any additional setup after loading the view.
 }
 

@@ -9,6 +9,7 @@
 #import "MoreViewController.h"
 #import "Masonry.h"
 #import "ContentCell.h"
+#import "DetailViewController.h"
 
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 
@@ -76,7 +77,7 @@
         flowLayout.minimumInteritemSpacing = 10;
         flowLayout.minimumLineSpacing = 10;
         UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
-        collectionView.backgroundColor = [UIColor greenColor];
+        collectionView.backgroundColor = [UIColor whiteColor];
         collectionView.delegate = self;
         collectionView.dataSource = self;
         [collectionView registerClass:[ContentCell class]
@@ -93,7 +94,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 12;
+    return self.courses.count;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -102,7 +103,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     ContentCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"contentCell" forIndexPath:indexPath];
-    cell.textLabel.text = @"hello";
+    cell.contents = self.courses[indexPath.row];
     return cell;
 }
 
@@ -122,6 +123,15 @@
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
     return UIEdgeInsetsMake(5, 10, 5, 10);
 }
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    DetailViewController *detailVC = [DetailViewController new];
+    detailVC.course = self.courses[indexPath.row];
+    self.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:detailVC animated:YES];
+    self.hidesBottomBarWhenPushed = NO;
+}
+
 
 - (void)buttonTouched:(UIButton *)sender{
     [self.navigationController popViewControllerAnimated:YES];

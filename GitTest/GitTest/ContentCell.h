@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Masonry.h"
+#import "CourseModel.h"
 @interface ContentCell : UICollectionViewCell
 
-@property (nonatomic, strong) UIImageView *imgView;
-@property (nonatomic, strong) UILabel *textLabel;
+@property (nonatomic, strong)   UIImageView *imgView;
+@property (nonatomic, strong)   UILabel     *textLabel;
+@property (nonatomic, strong)   CourseModel *contents;
 
 @end

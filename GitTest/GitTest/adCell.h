@@ -13,5 +13,5 @@
 @property (nonatomic, strong) UIScrollView      *adScrollView;
 @property (nonatomic, strong) UIPageControl     *adPageControl;
 @property (nonatomic, copy)   NSString          *imageName;
-
+@property (nonatomic, copy)   NSArray           *contents;
 @end

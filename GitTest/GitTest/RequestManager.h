@@ -16,6 +16,6 @@ typedef NS_ENUM(NSInteger, RequestMethod) {
     requestMethodPOST,
 };
 
-+ (void)request:(NSString *)URL method:(RequestMethod)method parameters:(NSDictionary *)parameters completed:(void (^)(NSDictionary *responseData)) completed failed:(void (^)(NSError *error)) failed;
++ (void)request:(NSString *)URL method:(RequestMethod)method parameters:(NSDictionary *)parameters completed:(void (^)(id responseData)) completed failed:(void (^)(NSError *error)) failed;
 
 @end

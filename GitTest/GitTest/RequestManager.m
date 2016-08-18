@@ -15,30 +15,17 @@
 
 @implementation RequestManager
 
-//+ (void):(NSString *)string{
-//    AFHTTPSessionManager *sessionManager = [AFHTTPSessionManager manager];
-//    sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
-//    [sessionManager GET:string
-//             parameters:nil
-//               progress:nil
-//                success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//                    NSLog(@"%@",responseObject);
-//                }
-//                failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//                    NSLog(@"%@",error);
-//                }];
-//}
-
-+ (void)request:(NSString *)URL method:(RequestMethod)method parameters:(NSDictionary *)parameters completed:(void (^)(NSDictionary *))completed failed:(void (^)(NSError *))failed{
++ (void)request:(NSString *)URL method:(RequestMethod)method parameters:(NSDictionary *)parameters completed:(void (^)(id))completed failed:(void (^)(NSError *))failed{
     AFHTTPSessionManager *sessionManager = [AFHTTPSessionManager manager];
     sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
     if (method == RequestMethodGET) {
         [sessionManager GET:URL
-                 parameters:parameters
+                 parameters:nil
                    progress:nil
                     success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                         if (responseObject) {
                             completed(responseObject);
+                            NSLog(@"%@",responseObject);
                         }
                     }
                     failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -47,8 +34,8 @@
                             failed(error);
                         }
                     }];
-
     }
+                      
 }
 
 @end
