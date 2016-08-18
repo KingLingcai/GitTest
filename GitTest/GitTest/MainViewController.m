@@ -11,6 +11,7 @@
 #import "AFNetworking.h"
 #import "Masonry.h"
 #import "RequestManager.h"
+#import "UMMobClick/MobClick.h"
 
 #import "adCell.h"
 #import "ContentCell.h"
@@ -46,6 +47,16 @@
 @end
 
 @implementation MainViewController
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    [MobClick beginLogPageView:@"mainVC"];
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:YES];
+    [MobClick endLogPageView:@"mainVC"];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
